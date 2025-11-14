@@ -351,7 +351,7 @@ fn ring_build_rs_main(c_root_dir: &Path, core_name_and_version: &str) {
     let endian = env::var(&env::CARGO_CFG_TARGET_ENDIAN).unwrap();
     let is_little_endian = endian == "little";
 
-    let is_git = fs::metadata(c_root_dir.join(".git")).is_ok();
+    let is_git = false; // hardcoded for packaged builds
 
     // Published builds are always built in release mode.
     let is_debug = is_git && env::var(&env::DEBUG).unwrap() != "false";
